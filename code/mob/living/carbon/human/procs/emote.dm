@@ -2253,7 +2253,25 @@
 					return
 				else
 					message = "<b>[src]</b> woofs!"
-					playsound(src.loc, 'sound/voice/urf.ogg', 60, channel=VOLUME_CHANNEL_EMOTE)
+					maptext_out = "<i>barks!</i>"
+					playsound(src.loc, 'sound/voice/urf.ogg', 60, 10, 0, src.get_age_pitch(), channel=VOLUME_CHANNEL_EMOTE)
+			if ("chimper")
+				if(!ismonkey(src))
+					switch(rand(1,4))
+						if(1)
+							src.say("Ooh aah! Aah!")
+						if(2)
+							src.say("AAAH! Ooh ooh...")
+						if(3)
+							src.say("Hoo HOOH, AAH!")
+						if(4)
+							src.say("OOoh ooooh! HOOH HOOH HOOH")
+					src.emote("scream")
+					message = "<b>[src]</b> chimpers badly!"
+				else
+					message = "<b>[src]</b> chimpers!"
+					maptext_out = "<i>chimpers!</i>"
+					playsound(src.loc, "sound/voice/chimper_[rand(1,3)].ogg", 40, 10, channel=VOLUME_CHANNEL_EMOTE)
 			else
 				src.show_text("Unusable emote '[act]'. 'Me help' for a list.", "blue")
 				return

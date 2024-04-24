@@ -270,7 +270,7 @@
 						src.ai_set_state(AI_ATTACKING)
 						break
 			if(prob(1))
-				src.emote(pick("dance", "flip", "laugh"))
+				src.emote(pick("dance", "flip", "laugh", "chimper"))
 			if(prob(ai_poke_thing_chance))
 				var/list/atom/things_to_pick = list()
 				for(var/obj/O in range(1, get_turf(src)))
