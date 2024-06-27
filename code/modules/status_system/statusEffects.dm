@@ -2899,3 +2899,134 @@
 
 	getTooltip()
 		return "You've [alpha == 0 ? "completely" : "partially"] faded from view! People can still hear you and see light from anything you're carrying."
+
+/// sticky/slippy floor behavior handler. 'optional' should be the id of the source chem
+/datum/statusEffect/wet_floor // I have infused the very floors with a soul. Do NOT tell the chaplain
+	id = "wet floor"
+	unique = TRUE
+	var/turf_wetType = null
+	var/turf_fluid = null
+	var/cloth = null
+	var/coat = null
+	var/obj/living/carbon/human/chump = null
+	var/timeout = 60 SECONDS
+	var/silent = FALSE
+	var/alpha = 60
+
+	onAdd(optional)
+		..()
+		var/image/overlay = null
+		switch (optional) // custom behavior
+			if ("spaceglue")
+				overlay = image('icons/effects/water.dmi', "sticky_floor")
+				overlay.color = rgb(230,230,60)
+			if ("slime")
+				overlay = image('icons/effects/water.dmi', "sticky_floor")
+				overlay.color = rgb(116,226,73)
+				timeout = 3 SECONDS // slime can be sweated in large quantities, best to be a quick clean up
+			if ("invislube")
+				silent = TRUE
+
+		if (!silent)
+			playsound(src, 'sound/impact_sounds/Slimy_Splat_1.ogg', 50, TRUE)
+		else
+			alpha = 0
+
+		overlay.blend_mode = BLEND_ADD
+		overlay.alpha = alpha
+
+
+		turf_wetType = optional
+		holder.AddOverlays(overlay, "wet_overlay")
+		dry_out()
+
+	onUpdate(timePassed)
+		turf_fluid = locate(/obj/fluid) in holder.contents
+		towel = locate(/obj/item/clothing/under/towel) in holder.contents
+		coat = locate(/obj/item/clothing/suit) in holder.contents
+		var/obj/living/carbon/human/H = locate(/obj/living/carbon/human) in holder.contents		if (F)
+			turf_fluid = F
+
+		if (chump && !ON_COOLDOWN(H, "free_kick_on_\ref[src]", H.trample_cooldown)) // don't kick your chump!
+			boutput(H, SPAN_NOTICE("You walk over [chump.name]'s body!"))
+			boutput(chump, SPAN_NOTICE("[H.name] stomps you into the [turf_fluid.group.master_reagent_id], gross!"))
+			random_brute_damage(chump, 2)
+			chump.emote("scream")
+			var/list/clothes = chump.get_all_items_on_mob()
+			for (var/obj/item/clothing/C in clothes)
+				C.add_stain("[turf_fluid.group.master_reagent_id]-stained")
+			return
+		else if (cloth)
+			cloth.add_stain("[turf_fluid.group.master_reagent_id]-stained")
+			return
+		else if (coat)
+			coat.add_stain("[turf_fluid.group.master_reagent_id]-stained")
+			return
+
+		if (H.getStatus("resting"))
+			chump = H
+			H = null
+			return
+		else if (H)
+			wet_behavior(H)
+
+		towel = null
+		coat = null
+
+	onRemove()
+		..()
+		holder.ClearSpecificOverlays("wet_overlay")
+
+	/proc/wet_behavior(var/obj/living/carbon/human/target = null)
+		switch (turf_wetType)
+			if ("spaceglue")
+				behavior_type = "slow"
+				if(target.getStatusDuration("slowed")<1)
+					boutput(target, SPAN_NOTICE("You get slowed down by the sticky floor!"))
+					target.changeStatus("slowed", 4 SECONDS)
+
+			if ("slime")
+				behavior_type = "slow"
+				if(target.getStatusDuration("slowed")<1)
+					boutput(target, SPAN_NOTICE("You get slowed down by the slimy floor!"))
+					target.changeStatus("slowed", 2 SECONDS)
+
+			if ("water") // antique mop does this
+				if (traitHolder?.hasTrait("super_slips"))
+					target.remove_pulling()
+					playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
+					var/atom/target_turf = get_edge_target_turf(target, target.dir)
+					target.throw_at(target_turf, 12, 1, throw_type = THROW_SLIP)
+				if (target.slip())
+					boutput(target, SPAN_NOTICE("You slipped on the floor!"))
+					target.unlock_medal("I just cleaned that!", 1)
+				else
+					target.inertia_dir = 0
+					return
+
+			if ("lube")
+				target.remove_pulling()
+				boutput(target, SPAN_NOTICE("You slipped on the floor!"))
+				playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
+				var/atom/target_turf = get_edge_target_turf(target, target.dir)
+				target.throw_at(target_turf, 12, 1, throw_type = THROW_SLIP)
+
+			if ("superlube")
+				target.remove_pulling()
+				target.changeStatus("knockdown", 3.5 SECONDS)
+				playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
+				boutput(target, SPAN_NOTICE("You slipped on the floor!"))
+				var/atom/target_turf = get_edge_target_turf(target, target.dir)
+				target.throw_at(target_turf, 30, 1, throw_type = THROW_SLIP)
+				random_brute_damage(target, 10)
+
+			if ("invislube")
+
+
+	/proc/dry_out()
+		SPAWN(timeout)
+			if (turf_fluid == turf_wetType)
+				dry_out()
+			else
+				holder.delStatus("wet_floor")
+

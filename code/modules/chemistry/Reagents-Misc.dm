@@ -833,9 +833,7 @@ datum
 			block_slippy = 1
 
 			reaction_turf(var/turf/target, var/volume)
-				if (istype(target, /turf/simulated))
-					var/turf/simulated/simulated_target = target
-					simulated_target.wetify(-1, 60 SECONDS, rgb(116,226,73))
+				target.setStatus("wet_floor", INFINITE_STATUS, id)
 
 		glue
 			name = "space glue"

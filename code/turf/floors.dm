@@ -1522,7 +1522,7 @@ TYPEINFO(/turf/simulated/floor/grass)
 	src.icon_state = "grass"
 	src.UpdateIcon()
 	if(prob(30))
-		src.icon_state += pick("_p", "_w", "_b", "_y", "_r", "_a")
+		src.icon_sate += pick("_p", "_w", "_b", "_y", "_r", "_a")
 	src.name = "grass"
 	src.set_dir(pick(cardinal))
 	step_material = "step_outdoors"
