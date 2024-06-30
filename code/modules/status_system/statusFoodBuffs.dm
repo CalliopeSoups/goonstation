@@ -427,10 +427,9 @@
 	maxDuration = 600
 	icon_state = "-"
 	unique = 1
-	var/reagent_id = "slime"
 
 	onUpdate(timePassed)
-		dropSweat(src.reagent_id, 5, 5)
+		dropSweat("slime", 5, 5)
 
 /datum/statusEffect/sweaty
 	id = "food_sweaty"

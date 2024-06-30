@@ -790,8 +790,7 @@ datum
 
 			reaction_turf(var/turf/target, var/volume)
 				if (istype(target, /turf/simulated))
-					var/turf/simulated/simulated_target = target
-					simulated_target.wetify(2, 60 SECONDS)
+					target.setStatus("wet_floor", 60 SECONDS, src)
 
 		superlube
 			name = "organic superlubricant"
@@ -808,11 +807,8 @@ datum
 
 			reaction_turf(var/turf/target, var/volume)
 				if (istype(target, /turf/simulated))
-					var/turf/simulated/simulated_target = target
-					if (visible)
-						simulated_target.wetify(3, 60 SECONDS)
-					else
-						simulated_target.wetify(3, 60 SECONDS, null, TRUE)
+					target.setStatus("wet_floor", 60 SECONDS, src)
+
 
 			invisible
 				name = "invisible organic superlubricant"
@@ -833,7 +829,9 @@ datum
 			block_slippy = 1
 
 			reaction_turf(var/turf/target, var/volume)
-				target.setStatus("wet_floor", INFINITE_STATUS, id)
+				var/turf/simulated/T = target
+				if (istype(T))
+					T.setStatus("wet_floor", INFINITE_STATUS, src)
 
 		glue
 			name = "space glue"
@@ -851,8 +849,7 @@ datum
 
 			reaction_turf(var/turf/target, var/volume)
 				if (istype(target, /turf/simulated))
-					var/turf/simulated/simulated_target = target
-					simulated_target.wetify(-2, 60 SECONDS)
+					target.setStatus("wet_floor", 60 SECONDS, src)
 
 			on_mob_life(var/mob/M, var/mult = 1, var/method, var/volume_passed)
 				if (!M) M = holder.my_atom
@@ -1302,8 +1299,7 @@ datum
 			reaction_turf(var/turf/target, var/volume)
 				var/turf/simulated/T = target
 				if (istype(T)) //Wire: fix for Undefined variable /turf/space/var/wet (&& T.wet)
-					if (T.wet >= 2) return
-					T.wetify(2, 20 SECONDS)
+					T.setStatus("wet_floor", 20 SECONDS, src)
 					if (!locate(/obj/decal/cleanable/oil) in T)
 						playsound(T, 'sound/impact_sounds/Slimy_Splat_1.ogg', 50, TRUE)
 						switch(volume)
@@ -3586,10 +3582,7 @@ datum
 			viscosity = 0.3
 
 			reaction_turf(var/turf/target, var/volume)
-				var/turf/simulated/T = target
-				if (istype(T))
-					if (T.wet >= 2) return
-					T.wetify(2, 80 SECONDS)
+				target.setStatus("wet_floor", 80 SECONDS, src)
 				return
 
 			on_mob_life(var/mob/M, var/mult = 1)
