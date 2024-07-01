@@ -365,7 +365,7 @@ TRASH BAG
 		if (istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			if (S.wet < 1)
-				S.setStatus("wet_floor", rand(30, 55), "water")
+				S.setStatus("wet_floor", rand(20, 35), "water")
 
 	if (istype(target_fluid))
 		user.show_text("You soak up [target_fluid] with [src].", "blue", group = "mop")

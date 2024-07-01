@@ -1668,14 +1668,16 @@
 		unique = TRUE
 		var/datum/reagent/turf_fluid = null
 		var/fluid_name = null
-		var/behavior_type = "wet"
+		var/behavior_type = "slippy"
 		var/turf/turf = null
 		var/obj/item/clothing/cloth = null
 		var/obj/item/clothing/coat = null
 		var/mob/living/carbon/human/chump = null
-		var/timeout
-		var/silent = FALSE
+		var/timeout = 60 SECONDS // dry out timer
 		var/alpha = 60
+		var/silent = FALSE
+		var/damaging = FALSE
+		var/throw_range = 12
 
 		onAdd(optional)
 			..()
@@ -1683,19 +1685,28 @@
 			src.timeout = duration
 			src.turf = src.owner
 			src.turf_fluid = optional
-			src.fluid_name = src.turf_fluid.id
+			src.fluid_name = src.turf_fluid.id // if the turf_fluid is ever changed outside of onAdd, the fluid_name will stay as the original, allowing for checks
 			overlay = image('icons/effects/water.dmi', "wet_floor")
 			if (src.turf_fluid)
 				overlay.color = rgb(src.turf_fluid.fluid_r, src.turf_fluid.fluid_g, src.turf_fluid.fluid_b)
-			switch (src.fluid_name) // custom behavior
+
+			switch (src.fluid_name) // set a chem's custom behavior and behavior_type here (default is "slippy")
 				if ("spaceglue")
+					src.behavior_type = "sticky"
 					overlay = image('icons/effects/water.dmi', "sticky_floor")
 				if ("slime")
+					src.behavior_type = "sticky"
 					overlay = image('icons/effects/water.dmi', "sticky_floor")
 					timeout = 3 SECONDS // slime can be sweated in large quantities, best to be a quick clean up
+				if ("water")
+					src.behavior_type = "wet"
+				if ("superlube")
+					src.damaging = TRUE
+					src.throw_range = 30
 				if ("invislube")
-					silent = TRUE
-
+					src.damaging = TRUE
+					src.throw_range = 30
+					src.silent = TRUE
 
 			if (!silent)
 				playsound(src, 'sound/impact_sounds/Slimy_Splat_1.ogg', 50, TRUE)
@@ -1704,7 +1715,6 @@
 
 			overlay.blend_mode = BLEND_ADD
 			overlay.alpha = alpha
-
 
 			turf.AddOverlays(overlay, "wet_overlay")
 			dry_out()
@@ -1720,6 +1730,13 @@
 			else
 				src.turf_fluid = null
 
+			if (H)
+				if (H.hasStatus("resting")) // if someone is laying down on the tile, they are the new chump
+					src.chump = H
+					return
+				else if (src.chump == H) // if there's someone on the tile, they're the chump but they're not laying down, no longer chump
+					src.chump = null
+
 
 		onRemove()
 			..()
@@ -1734,7 +1751,7 @@
 
 		proc/wet_behavior(var/mob/living/carbon/human/target = null)
 			if (src.chump && !ON_COOLDOWN(target, "free_kick_on_\ref[src]", target.trample_cooldown)) // don't kick your chump!
-				boutput(H, SPAN_NOTICE("You walk over [src.chump.name]'s body!"))
+				boutput(target, SPAN_NOTICE("You walk over [src.chump.name]'s body!"))
 
 				boutput(src.chump, SPAN_NOTICE("[target.name] stomps you into the [fluid_name], gross!"))
 				random_brute_damage(src.chump, 2)
@@ -1751,53 +1768,29 @@
 				src.coat.add_stain("[src.fluid_name]-stained")
 				return
 
-			switch (src.fluid_name)
-				if ("spaceglue")
-					src.behavior_type = "slow"
-					if(target.getStatusDuration("slowed")<1)
-						boutput(target, SPAN_NOTICE("You get slowed down by the sticky floor!"))
-						target.changeStatus("slowed", 4 SECONDS)
-
-				if ("slime")
-					src.behavior_type = "slow"
-					if(target.getStatusDuration("slowed")<1)
-						boutput(target, SPAN_NOTICE("You get slowed down by the slimy floor!"))
-						target.changeStatus("slowed", 2 SECONDS)
-
-				if ("water") // antique mop does this
-					if (target.traitHolder?.hasTrait("super_slips"))
-						target.remove_pulling()
-						playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
-						var/atom/target_turf = get_edge_target_turf(target, target.dir)
-						target.throw_at(target_turf, 12, 1, throw_type = THROW_SLIP)
+			if (src.behavior_type == "wet" && target.traitHolder?.hasTrait("super_slips"))
+				src.behavior_type = "slippy"
+				SPAWN(0)
 					if (target.slip())
-						boutput(target, SPAN_NOTICE("You slipped on the floor!"))
 						target.unlock_medal("I just cleaned that!", 1)
 					else
 						target.inertia_dir = 0
 						return
+			// this is where the magic happens
+			if (src.behavior_type == "sticky")
+				target.changeStatus("slowed", 4 SECONDS)
+				playsound(target.loc, 'sound/misc/splash_1.ogg', 50, TRUE, -3)
+				boutput(target, SPAN_NOTICE("You get slowed down by the sticky floor!"))
+			else if (src.behavior_type == "slippy")
+				target.changeStatus("knockdown", 3 SECONDS)
+				var/atom/target_turf = get_edge_target_turf(target, target.dir)
+				target.remove_pulling()
+				target.throw_at(target_turf, src.throw_range, 1, throw_type = THROW_SLIP)
+				playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
+				boutput(target, SPAN_NOTICE("You slipped on the floor!"))
 
-				if ("lube", "butter")
-					playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
-					target.remove_pulling()
-					boutput(target, SPAN_NOTICE("You slipped on the floor!"))
-					var/atom/target_turf = get_edge_target_turf(target, target.dir)
-					target.throw_at(target_turf, 12, 1, throw_type = THROW_SLIP)
-
-				if ("superlube", "invislube")
-					if (src.silent)
-						playsound(target.loc, 'sound/misc/slip.ogg', 50, TRUE, -3) // invislube is stealthy
-					target.remove_pulling()
-					target.changeStatus("knockdown", 3.5 SECONDS)
-					boutput(target, SPAN_NOTICE("You slipped on the floor!"))
-					var/atom/target_turf = get_edge_target_turf(target, target.dir)
-					target.throw_at(target_turf, 30, 1, throw_type = THROW_SLIP)
-					random_brute_damage(target, 10)
-
-			if (target && target.hasStatus("resting"))
-				chump = target
-				return
-
+			if (src.damaging)
+				random_brute_damage(target, 10)
 
 /datum/statusEffect/bloodcurse
 	id = "bloodcurse"

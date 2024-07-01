@@ -21,57 +21,11 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
-	if(.)
-		//SLIP handling
-		if (!src.throwing && !src.lying && isturf(NewLoc))
-			var/turf/T = NewLoc
-			if (T.turf_flags & MOB_SLIP)
-				var/wet_adjusted = T.wet
-				if (traitHolder?.hasTrait("super_slips") && (T.wet > 0)) //slippery when wet
-					wet_adjusted = max(wet_adjusted, 2) //whee
-
-				switch (wet_adjusted)
-					if (-1) //slime
-						if(src.getStatusDuration("slowed")<1)
-							boutput(src, SPAN_NOTICE("You get slowed down by the slimy floor!"))
-						if(src.getStatusDuration("slowed")< 10 SECONDS)
-							src.changeStatus("slowed", 3 SECONDS)
-
-					if (-2) //glue
-						if(src.getStatusDuration("slowed")<1)
-							boutput(src, SPAN_NOTICE("You get slowed down by the sticky floor!"))
-						if(src.getStatusDuration("slowed")< 10 SECONDS)
-							src.changeStatus("slowed", 3 SECONDS)
-
-					if (1) //ATM only the ancient mop does this
-						if (locate(/obj/item/clothing/under/towel) in T)
-							src.inertia_dir = 0
-							T.wet = 0
-							return
-						if (src.slip())
-							boutput(src, SPAN_NOTICE("You slipped on the wet floor!"))
-							src.unlock_medal("I just cleaned that!", 1)
-						else
-							src.inertia_dir = 0
-							return
-
-					if (2) //lube
-						src.remove_pulling()
-						boutput(src, SPAN_NOTICE("You slipped on the floor!"))
-						playsound(T, 'sound/misc/slip.ogg', 50, TRUE, -3)
-						var/atom/target = get_edge_target_turf(src, src.dir)
-						src.throw_at(target, 12, 1, throw_type = THROW_SLIP)
-
-					if (3) // superlube
-						src.remove_pulling()
-						src.changeStatus("knockdown", 3.5 SECONDS)
-						playsound(T, 'sound/misc/slip.ogg', 50, TRUE, -3)
-						boutput(src, SPAN_NOTICE("You slipped on the floor!"))
-						var/atom/target = get_edge_target_turf(src, src.dir)
-						src.throw_at(target, 30, 1, throw_type = THROW_SLIP)
-						random_brute_damage(src, 10)
-
-
+	if(.) // Slip/stick handling
+		var/turf/T = NewLoc
+		var/datum/statusEffect/wet_floor/status = T.hasStatus("wet_floor")
+		if (!src.throwing && !src.lying && status)
+			status.wet_behavior(src)
 
 /mob/living/carbon/relaymove(mob/user, direction, delay, running)
 	src.organHolder?.stomach?.relaymove(user, direction, delay, running)
