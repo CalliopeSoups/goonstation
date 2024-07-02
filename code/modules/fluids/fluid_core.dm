@@ -694,47 +694,6 @@ ADMIN_INTERACT_PROCS(/obj/fluid, proc/admin_clear_fluid)
 		return
 	..()
 
-/mob/living/carbon/EnteredFluid(obj/fluid/F as obj, atom/oldloc, var/do_reagent_reaction = 1)
-	var/entered_group = 1 //Did the entering atom cross from a non-fluid to a fluid tile?
-	//SLIPPING
-	//only slip if edge tile
-	var/turf/T = get_turf(oldloc)
-	if (T?.active_liquid)
-		entered_group = 0
-
-	if (entered_group && (src.loc != oldloc))
-		if (F.amt > 0 && F.amt <= F.max_slip_volume && F.avg_viscosity <= F.max_slip_viscosity)
-			var/master_block_slippy = F.group.reagents.get_master_reagent_slippy(F.group)
-			switch(master_block_slippy)
-				if(0)
-					var/slippery =  (1 - (F.avg_viscosity/F.max_slip_viscosity)) * 50
-					var/checks = 10
-					for (var/thing in oldloc)
-						if (istype(thing,/obj/machinery/door))
-							slippery = 0
-						checks--
-						if (checks <= 0) break
-					if (prob(slippery) && src.slip())
-						src.visible_message(SPAN_ALERT("<b>[src]</b> slips on [F]!"),\
-						SPAN_ALERT("You slip on [F]!"))
-				if(-1) //space lube. this code bit is shit but i'm too lazy to make it Real right now. the proper implementation should also make exceptions for ice and stuff.
-					src.remove_pulling()
-					src.changeStatus("knockdown", 3.5 SECONDS)
-					boutput(src, SPAN_NOTICE("You slipped on [F]!"))
-					playsound(T, 'sound/misc/slip.ogg', 50, TRUE, -3)
-					var/atom/target = get_edge_target_turf(src, src.dir)
-					src.throw_at(target, 12, 1, throw_type = THROW_SLIP)
-				if(-2) //superlibe
-					src.remove_pulling()
-					src.changeStatus("knockdown", 6 SECONDS)
-					playsound(T, 'sound/misc/slip.ogg', 50, TRUE, -3)
-					boutput(src, SPAN_NOTICE("You slipped on [F]!"))
-					var/atom/target = get_edge_target_turf(src, src.dir)
-					src.throw_at(target, 30, 1, throw_type = THROW_SLIP)
-					random_brute_damage(src, 10)
-
-
-
 	//Possibility to consume reagents. (Each reagent should return 0 in its reaction_[type]() proc if reagents should be removed from fluid)
 	if (do_reagent_reaction && F.group.reagents && F.group.reagents.reagent_list && F.amt > CHEM_EPSILON)
 		F.group.last_reacted = F
