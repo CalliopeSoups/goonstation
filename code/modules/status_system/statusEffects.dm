@@ -1673,16 +1673,17 @@
 		var/obj/item/clothing/cloth = null
 		var/obj/item/clothing/coat = null
 		var/mob/living/carbon/human/chump = null
-		var/timeout = 60 SECONDS // dry out timer
+		var/dry_timer = 60 SECONDS // dry out timer
 		var/alpha = 60
 		var/silent = FALSE
 		var/damaging = FALSE
+		var/persistent = FALSE /// if the chem should keep applying its behavior while the victim is in contact
 		var/throw_range = 12
 
 		onAdd(optional)
 			..()
 			var/image/overlay = null
-			src.timeout = duration
+			src.dry_timer = duration
 			src.turf = src.owner
 			src.turf_fluid = optional
 			src.fluid_name = src.turf_fluid.id // if the turf_fluid is ever changed outside of onAdd, the fluid_name will stay as the original, allowing for checks
@@ -1697,7 +1698,7 @@
 				if ("slime")
 					src.behavior_type = "sticky"
 					overlay = image('icons/effects/water.dmi', "sticky_floor")
-					timeout = 3 SECONDS // slime can be sweated in large quantities, best to be a quick clean up
+					dry_timer = 3 SECONDS // slime can be sweated in large quantities, best to be a quick clean up
 				if ("water")
 					src.behavior_type = "wet"
 				if ("superlube")
@@ -1734,16 +1735,17 @@
 				if (H.hasStatus("resting")) // if someone is laying down on the tile, they are the new chump
 					src.chump = H
 					return
-				else if (src.chump == H) // if there's someone on the tile, they're the chump but they're not laying down, no longer chump
+				else if (src.chump == H) // if there's someone on the tile and they're the chump but they're not laying down, no longer chump
 					src.chump = null
-
+					if (src.persistent)
+						wet_behavior(H) // used mostly for slime which keeps slowing you down while you're on it
 
 		onRemove()
 			..()
 			turf.ClearSpecificOverlays("wet_overlay")
 
 		proc/dry_out()
-			SPAWN(src.timeout)
+			SPAWN(src.dry_timer)
 				if (src.turf_fluid)
 					dry_out()
 				else
@@ -1752,8 +1754,7 @@
 		proc/wet_behavior(var/mob/living/carbon/human/target = null)
 			if (src.chump && !ON_COOLDOWN(target, "free_kick_on_\ref[src]", target.trample_cooldown)) // don't kick your chump!
 				boutput(target, SPAN_NOTICE("You walk over [src.chump.name]'s body!"))
-
-				boutput(src.chump, SPAN_NOTICE("[target.name] stomps you into the [fluid_name], gross!"))
+				boutput(src.chump, SPAN_NOTICE("[target.name] stomps you into the [src.fluid_name], gross!"))
 				random_brute_damage(src.chump, 2)
 				src.chump.emote("scream")
 
@@ -1776,6 +1777,7 @@
 					else
 						target.inertia_dir = 0
 						return
+
 			// this is where the magic happens
 			if (src.behavior_type == "sticky")
 				target.changeStatus("slowed", 4 SECONDS)
