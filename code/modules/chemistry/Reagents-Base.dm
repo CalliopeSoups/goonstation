@@ -742,7 +742,6 @@
 	target_organs = list("left_kidney", "right_kidney")
 	heat_capacity = 400
 #ifdef UNDERWATER_MAP
-	block_slippy = 1
 	description = "A little strange. Not like any water you've seen. But definitely OSHA approved."
 #else
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
@@ -771,7 +770,8 @@
 				holder.del_reagent(id)
 
 	reaction_turf(var/turf/target, var/volume)
-		return 1//fluid is better. remove this later probably
+		if (istype(target, /turf/simulated))
+			target.setStatus("wet_floor", INFINITE_STATUS, src)
 
 	reaction_obj(var/obj/item/O, var/volume)
 		. = ..()
@@ -903,7 +903,6 @@
 	name = "seawater"
 	id = "seawater"
 	description = "A little strange. Not like any seawater you've seen. But definitely OSHA approved."
-	block_slippy = 1
 	reagent_state = LIQUID
 	thirst_value = -0.3 //Sea water actually slowly dehydrates you because you use more liquid to get rid of the salt then you gain.
 	hygiene_value = 0.3

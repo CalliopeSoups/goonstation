@@ -786,7 +786,8 @@ datum
 			fluid_g = 255
 			value = 3 // 1 1 1
 			hygiene_value = 0.25
-			block_slippy = -1
+			turf_behavior = "slippy"
+
 
 			reaction_turf(var/turf/target, var/volume)
 				if (istype(target, /turf/simulated))
@@ -802,8 +803,9 @@ datum
 			fluid_g = 255
 			value = 4 // 1 1 1
 			hygiene_value = 0.25
-			block_slippy = -2
-			var/visible = 1
+			turf_behavior = "slippy"
+			throw_range = 30
+			damaging = TRUE
 
 			reaction_turf(var/turf/target, var/volume)
 				if (istype(target, /turf/simulated))
@@ -813,7 +815,7 @@ datum
 			invisible
 				name = "invisible organic superlubricant"
 				id = "invislube"
-				visible = 0
+				silent = TRUE
 
 		slime
 			name = "slug slime"
@@ -826,7 +828,8 @@ datum
 			fluid_g = 226
 			transparency = 180
 			viscosity = 0.8
-			block_slippy = 1
+			turf_behavior = "sticky"
+			persistent = TRUE
 
 			reaction_turf(var/turf/target, var/volume)
 				var/turf/simulated/T = target
@@ -844,12 +847,12 @@ datum
 			fluid_g = 230
 			transparency = 180
 			viscosity = 0.8
-			block_slippy = 1
+			turf_behavior = "sticky"
 			var/counter
 
 			reaction_turf(var/turf/target, var/volume)
 				if (istype(target, /turf/simulated))
-					target.setStatus("wet_floor", 60 SECONDS, src)
+					target.setStatus("wet_floor", INFINITE_STATUS, src)
 
 			on_mob_life(var/mob/M, var/mult = 1, var/method, var/volume_passed)
 				if (!M) M = holder.my_atom

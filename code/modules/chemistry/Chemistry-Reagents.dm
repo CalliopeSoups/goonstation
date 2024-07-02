@@ -46,7 +46,6 @@ datum
 		var/energy_value = 0
 		var/blob_damage = 0 // If this is a poison, it may be useful for poisoning the blob.
 		var/viscosity = 0 // determines interactions in fluids. 0 for least viscous, 1 for most viscous. use decimals!
-		var/block_slippy = 0 //fluid flag for slippage control
 		var/list/target_organs
 		var/heat_capacity = 100 /* how much heat a reagent can hold */ // ACTUALLY, THIS IS SPECIFIC HEAT CAPACITY, HOPE THIS HELPS!! - Emily
 		var/blocks_sight_gas = 0 //opacity
@@ -63,6 +62,18 @@ datum
 		var/initial_metabolized = FALSE
 		///Is it banned from various fluid types, see _std/defines/reagents.dm
 		var/fluid_flags = 0
+		/// Behaviors for turf reactions: "slippy", "wet" and "sticky"
+		var/turf_behavior = "wet"
+		/// How long it takes for turf_behavior to be removed
+		var/dryout_timer = 60 SECONDS
+		/// How far people fly when chem is slipped on
+		var/throw_range = 12
+		/// If statusEffect/wet_floor behavior should repeat while a person is in contact with the chem
+		var/persistent = FALSE
+		/// If it hurts to slip on
+		var/damaging = FALSE
+		/// If the behavior should be stealthy (eg: invislube)
+		var/silent = FALSE
 
 		New()
 			..()

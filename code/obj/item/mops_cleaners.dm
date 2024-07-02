@@ -364,8 +364,8 @@ TRASH BAG
 		mopcount++
 		if (istype(T, /turf/simulated))
 			var/turf/simulated/S = T
-			if (S.wet < 1)
-				S.setStatus("wet_floor", rand(20, 35), "water")
+			if (!S.hasStatus("wet_floor") && !target_fluid)
+				S.setStatus("wet_floor", rand(20, 35), src.reagents)
 
 	if (istype(target_fluid))
 		user.show_text("You soak up [target_fluid] with [src].", "blue", group = "mop")
@@ -439,7 +439,7 @@ TRASH BAG
 
 			if(istype(U,/turf/simulated))
 				var/turf/simulated/T = U
-				T.setStatus("wet_floor", INFINITE_STATUS, "water")
+				T.setStatus("wet_floor", INFINITE_STATUS, /datum/reagent/water/)
 
 		if (mopcount >= 5) //Okay this stuff is an ugly hack and i feel bad about it.
 			SPAWN(0.5 SECONDS)

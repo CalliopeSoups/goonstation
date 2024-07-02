@@ -264,16 +264,16 @@ proc/chem_helmet_check(mob/living/carbon/human/H, var/what_liquid="hot")
 		return largest_id
 
 	proc/get_master_reagent_slippy()
-		var/largest_block_slippy = null
+		var/latest_block_slippy = null
 		var/largest_volume = 0
 
 		for(var/reagent_id in reagent_list)
 			var/datum/reagent/current = reagent_list[reagent_id]
 			if(current.volume > largest_volume)
-				largest_block_slippy = current.block_slippy
+				latest_block_slippy = current.turf_behavior
 				largest_volume = current.volume
 
-		return largest_block_slippy
+		return latest_block_slippy
 
 	proc/get_master_reagent_gas_opaque()
 		var/opacity_to_return = null
