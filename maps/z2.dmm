@@ -13257,11 +13257,6 @@
 /obj/decal/cleanable/dirt,
 /turf/unsimulated/floor/cave,
 /area/crater/cave)
-"bdZ" = (
-/obj/decal/mushrooms/type2,
-/obj/item/raw_material/uqill,
-/turf/unsimulated/floor/cave,
-/area/crater/cave)
 "bea" = (
 /obj/fakeobject{
 	icon = 'icons/obj/power_cond.dmi';
@@ -15616,6 +15611,24 @@
 	dir = 4
 	},
 /area/precursor)
+"bld" = (
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/simulated/floor/stone{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "ble" = (
 /obj/machinery/vending/coffee,
 /turf/unsimulated/floor/specialroom/bar,
@@ -19479,14 +19492,6 @@
 	icon_state = "iocrust_edge"
 	},
 /area/iomoon/caves)
-"bBa" = (
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 8
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "bBb" = (
 /obj/item/raw_material/cerenkite,
 /turf/unsimulated/iomoon/floor{
@@ -29340,6 +29345,18 @@
 	icon_state = "fred2"
 	},
 /area/sim/area2)
+"cle" = (
+/obj/decal/cleanable/cobweb/cobwebs_2/directional,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_2/directional/south,
+/turf/simulated/floor/carpet/purple/fancy/edge/sw{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "clf" = (
 /obj/fakeobject/robot{
 	anchored = 1;
@@ -54800,6 +54817,11 @@
 /obj/item/paper/book/from_file/hydroponicsguide,
 /turf/unsimulated/floor/carpet/grime,
 /area/crater/biodome/research)
+"eho" = (
+/obj/decal/mushrooms/type2,
+/obj/item/raw_material/uqill,
+/turf/unsimulated/floor/cave,
+/area/crater/cave)
 "ehF" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/cobweb,
@@ -55784,18 +55806,6 @@
 /obj/mapping_helper/wingrille_spawn/auto,
 /turf/unsimulated/floor/black,
 /area/owlery/lab)
-"eUz" = (
-/obj/cable{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/autoname_east,
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 1
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "eUA" = (
 /obj/table/auto,
 /obj/item/paper_bin,
@@ -56475,50 +56485,12 @@
 	icon_state = "iocrust_corner"
 	},
 /area/iomoon/caves)
-"fxU" = (
-/obj/storage/secure/closet/fridge{
-	desc = "Most of this stuff isn't exactly for healing people.";
-	name = "'first-aid' fridge"
-	},
-/obj/item/scissors/surgical_scissors,
-/obj/item/surgical_spoon,
-/obj/item/scalpel,
-/obj/item/circular_saw,
-/obj/item/suture,
-/obj/item/staple_gun{
-	pixel_x = 6;
-	pixel_y = 12
-	},
-/obj/item/storage/box/syringes{
-	pixel_x = 7;
-	pixel_y = 13
-	},
-/obj/item/reagent_containers/glass/bottle/formaldehyde{
-	pixel_x = 7;
-	pixel_y = 7
-	},
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 8
-	},
-/turf/simulated/floor/industrial{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "fyt" = (
 /obj/cable{
 	icon_state = "4-8"
 	},
 /turf/unsimulated/floor/black/side,
 /area/iomoon/base)
-"fyU" = (
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/turf/simulated/floor/wood/five{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "fzq" = (
 /obj/tree/sakura_tree,
 /turf/unsimulated/floor/grass/leafy,
@@ -57928,6 +57900,20 @@
 	},
 /turf/space,
 /area/space)
+"gzN" = (
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 8
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/west,
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "gzZ" = (
 /obj/mesh/grille/steel,
 /obj/fakeobject{
@@ -58605,14 +58591,6 @@
 	opacity = 0
 	},
 /area/centcom)
-"hab" = (
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 1
-	},
-/turf/simulated/floor/stone{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "hao" = (
 /obj/disposalpipe/segment{
 	dir = 4;
@@ -59925,6 +59903,34 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/watchful_eye_sensor)
+"idM" = (
+/obj/machinery/power/apc/autoname_north,
+/obj/cable{
+	icon_state = "0-4"
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	dir = 4;
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/machinery/power/apc/autoname_north,
+/obj/cable{
+	icon_state = "0-4"
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	dir = 4;
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "ies" = (
 /obj/fakeobject/pipe{
 	desc = "It won't budge.";
@@ -59964,15 +59970,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/iomoon)
-"igq" = (
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "iha" = (
 /obj/decal/residual_energy,
 /mob/living/critter/small_animal/floateye/watchful,
@@ -60851,6 +60848,24 @@
 	dir = 10
 	},
 /area/centcom/offices/jorj)
+"iNx" = (
+/obj/kitchenspike,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 1
+	},
+/obj/decal/cleanable/rust/jen,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/kitchenspike,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/north,
+/obj/decal/cleanable/rust/jen,
+/turf/simulated/floor/industrial{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "iNJ" = (
 /obj/fakeobject/pipe{
 	color = "b4b4b4";
@@ -63240,16 +63255,6 @@
 	},
 /turf/unsimulated/floor/darkblue,
 /area/syndicate_station/battlecruiser)
-"kwk" = (
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	dir = 4;
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "kwx" = (
 /obj/lattice{
 	dir = 10;
@@ -63766,15 +63771,6 @@
 /obj/submachine/foodprocessor,
 /turf/unsimulated/outdoors/grass,
 /area/void_diner)
-"kPY" = (
-/obj/decoration/wineholder,
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 8
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "kQR" = (
 /obj/fakeobject/skeleton{
 	desc = "The burnt remains of some poor sod.";
@@ -63976,35 +63972,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/moon/museum)
-"kZk" = (
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 1
-	},
-/obj/item/clothing/mask/skull/vampire{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/skull/vampire{
-	pixel_x = -10;
-	pixel_y = -2
-	},
-/obj/item/skull/vampire{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/skull/vampire{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/machinery/bot/skullbot/ominous{
-	desc = "Someone's been practicing raising life again. Disgusting.";
-	name = "ominous skull hopper"
-	},
-/obj/decal/cleanable/ash,
-/turf/simulated/floor/wood/five{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "kZz" = (
 /obj/item/crowbar,
 /obj/fakeobject/skeleton{
@@ -65411,20 +65378,6 @@
 	},
 /turf/unsimulated/floor/airless/plating/catwalk/auto/iomoon,
 /area/iomoon)
-"mhX" = (
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	dir = 4;
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/obj/decal/cleanable/ash{
-	pixel_x = 14;
-	pixel_y = 14
-	},
-/turf/simulated/floor/wood/five{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "mie" = (
 /obj/stool/chair/dining/regal{
 	anchored = 1;
@@ -65535,6 +65488,62 @@
 	name = "wood floor"
 	},
 /area/centcom/offices/sord)
+"mmP" = (
+/obj/storage/secure/closet/fridge{
+	desc = "Most of this stuff isn't exactly for healing people.";
+	name = "'first-aid' fridge"
+	},
+/obj/item/scissors/surgical_scissors,
+/obj/item/surgical_spoon,
+/obj/item/scalpel,
+/obj/item/circular_saw,
+/obj/item/suture,
+/obj/item/staple_gun{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/storage/box/syringes{
+	pixel_x = 7;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/glass/bottle/formaldehyde{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 8
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/storage/secure/closet/fridge{
+	desc = "Most of this stuff isn't exactly for healing people.";
+	name = "'first-aid' fridge"
+	},
+/obj/item/scissors/surgical_scissors,
+/obj/item/surgical_spoon,
+/obj/item/scalpel,
+/obj/item/circular_saw,
+/obj/item/suture,
+/obj/item/staple_gun{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/storage/box/syringes{
+	pixel_x = 7;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/glass/bottle/formaldehyde{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/west,
+/turf/simulated/floor/industrial{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "mnF" = (
 /obj/overlay{
 	density = 1;
@@ -66249,6 +66258,14 @@
 	icon_state = "white"
 	},
 /area/sim/racing_track)
+"mRf" = (
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 1
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "mRE" = (
 /turf/unsimulated/floor/marble/black,
 /area/centcom/offices/wander)
@@ -66267,6 +66284,28 @@
 	},
 /turf/space,
 /area/syndicate_station_space)
+"mSK" = (
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 8
+	},
+/obj/decal/poster/wallsign/dead_exec_portrait{
+	name = "spooky painting";
+	desc = "His eyes follow you. Aah!"
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/west,
+/obj/decal/poster/wallsign/dead_exec_portrait{
+	name = "spooky painting";
+	desc = "His eyes follow you. Aah!"
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "mTn" = (
 /obj/decal/residual_energy,
 /mob/living/critter/small_animal/floateye/watchful,
@@ -66350,6 +66389,28 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/moon/museum)
+"mVO" = (
+/obj/storage/closet/coffin/vampire,
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/decal/cleanable/rust/jen,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/storage/closet/coffin/vampire,
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/decal/cleanable/rust/jen,
+/turf/simulated/floor/industrial{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "mVR" = (
 /obj/indestructible/shuttle_corner{
 	dir = 1;
@@ -66660,6 +66721,24 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/hospital/samostrel)
+"nhk" = (
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "nhl" = (
 /obj/lattice{
 	dir = 9;
@@ -67408,6 +67487,22 @@
 	},
 /turf/unsimulated/floor/circuit/red,
 /area/syndicate_station/assault_pod)
+"nII" = (
+/obj/decoration/wineholder,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 8
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decoration/wineholder,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/west,
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "nJg" = (
 /obj/mapping_helper/wingrille_spawn/auto/reinforced/crystal,
 /turf/unsimulated/floor/plating,
@@ -70008,17 +70103,6 @@
 	icon_state = "logo_xg16"
 	},
 /area/iomoon/base)
-"pyG" = (
-/obj/storage/closet/coffin/vampire,
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/decal/cleanable/rust/jen,
-/turf/simulated/floor/industrial{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "pyI" = (
 /obj/decal/tile_edge/stripe/extra_big{
 	dir = 10
@@ -70264,16 +70348,6 @@
 "pHY" = (
 /turf/unsimulated/wall/auto/adventure/shuttle/dark,
 /area/drone)
-"pIf" = (
-/obj/kitchenspike,
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 1
-	},
-/obj/decal/cleanable/rust/jen,
-/turf/simulated/floor/industrial{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "pID" = (
 /obj/cable{
 	icon_state = "1-8"
@@ -70631,6 +70705,24 @@
 /obj/machinery/broadside_gun/artillery_cannon/syndicate,
 /turf/space,
 /area/syndicate_station_space)
+"pVy" = (
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood/five{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "pVJ" = (
 /obj/fakeobject/pipe{
 	color = "b4b4b4";
@@ -72154,15 +72246,6 @@
 	dir = 1
 	},
 /area/iomoon/base)
-"rai" = (
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/turf/simulated/floor/stone{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "raS" = (
 /obj/stool/chair/comfy,
 /obj/landmark/spawner/random_trader,
@@ -72305,6 +72388,42 @@
 	},
 /turf/unsimulated/outdoors/grass,
 /area/void_diner)
+"riX" = (
+/obj/storage/closet/dresser,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/storage/closet/dresser,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/suit/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/item/clothing/under/gimmick/vampire,
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "rje" = (
 /obj/machinery/light,
 /obj/decal/cleanable/blood/tracks{
@@ -72523,6 +72642,28 @@
 	},
 /turf/unsimulated/wall/auto/lead/blue,
 /area/centcom/lobby)
+"rsB" = (
+/obj/decal/stage_edge/dojo,
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/stage_edge/dojo,
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "rsL" = (
 /obj/mesh/catwalk{
 	dir = 6
@@ -72830,6 +72971,62 @@
 	name = "Fireplace"
 	},
 /area/centcom/offices/flaborized)
+"rAK" = (
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 1
+	},
+/obj/item/clothing/mask/skull/vampire{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/skull/vampire{
+	pixel_x = -10;
+	pixel_y = -2
+	},
+/obj/item/skull/vampire{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/skull/vampire{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/machinery/bot/skullbot/ominous{
+	desc = "Someone's been practicing raising life again. Disgusting.";
+	name = "ominous skull hopper"
+	},
+/obj/decal/cleanable/ash,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/north,
+/obj/item/clothing/mask/skull/vampire{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/skull/vampire{
+	pixel_x = -10;
+	pixel_y = -2
+	},
+/obj/item/skull/vampire{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/skull/vampire{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/machinery/bot/skullbot/ominous{
+	desc = "Someone's been practicing raising life again. Disgusting.";
+	name = "ominous skull hopper"
+	},
+/obj/decal/cleanable/ash,
+/turf/simulated/floor/wood/five{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "rAS" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -72913,6 +73110,38 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/moon/museum)
+"rEs" = (
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/machinery/microwave{
+	pixel_y = 7
+	},
+/obj/table/reinforced/chemistry/auto{
+	desc = "A black countertop table for storing kitchen-y objects.";
+	name = "kitchen counter"
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/machinery/microwave{
+	pixel_y = 7
+	},
+/obj/table/reinforced/chemistry/auto{
+	desc = "A black countertop table for storing kitchen-y objects.";
+	name = "kitchen counter"
+	},
+/turf/simulated/floor/marble,
+/area/vampchapel)
 "rEI" = (
 /turf/unsimulated/floor/plating,
 /area/meat_derelict/guts)
@@ -72958,14 +73187,6 @@
 	dir = 10
 	},
 /area/crunch/wtc)
-"rFr" = (
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 1
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "rFt" = (
 /obj/table/reinforced/auto,
 /obj/machinery/computer/television/small{
@@ -73335,6 +73556,20 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/moon/museum/west)
+"rTx" = (
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 1
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/north,
+/turf/simulated/floor/stone{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "rUx" = (
 /obj/shrub{
 	dir = 4;
@@ -74724,6 +74959,18 @@
 	},
 /turf/unsimulated/outdoors/grass,
 /area/shuttle/merchant_shuttle/left_centcom/destiny)
+"sYe" = (
+/obj/decal/cleanable/cobweb/cobwebs_2/directional,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_2/directional/south,
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "sYs" = (
 /obj/table/regal,
 /obj/item/plate,
@@ -74818,6 +75065,26 @@
 "tbY" = (
 /turf/unsimulated/floor/snowcalm,
 /area/centcom/offices/azrun)
+"tbZ" = (
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "tck" = (
 /obj/table/reinforced/auto,
 /obj/item/paper/blueprint/destiny,
@@ -74973,6 +75240,28 @@
 	},
 /turf/unsimulated/floor/caution/north,
 /area/drone/office)
+"tin" = (
+/obj/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/autoname_east,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional{
+	dir = 1
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/autoname_east,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/north,
+/turf/simulated/floor/wood/seven{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "tiD" = (
 /obj/fakeobject/skeleton{
 	desc = "The remains of a human. How'd they get out there?";
@@ -75287,12 +75576,6 @@
 /obj/machinery/light/lamp/black,
 /turf/unsimulated/floor,
 /area/centcom/lounge)
-"tuK" = (
-/obj/decal/cleanable/cobweb/cobwebs_2/directional,
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "tvy" = (
 /obj/decal/cleanable/blood{
 	icon_state = "handblood_c"
@@ -76285,12 +76568,6 @@
 	},
 /turf/unsimulated/outdoors/grass,
 /area/centcom/outside)
-"uoF" = (
-/obj/decal/cleanable/cobweb/cobwebs_2/directional,
-/turf/simulated/floor/carpet/purple/fancy/edge/sw{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "uoX" = (
 /obj/item/gun/kinetic/breakaction/singleshotrifle{
 	pixel_y = 32;
@@ -77356,21 +77633,6 @@
 /obj/traitorifier/virtual/arcfiend,
 /turf/unsimulated/floor/grime,
 /area/sim/gunsim/lobby)
-"veL" = (
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	dir = 4;
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/obj/machinery/microwave{
-	pixel_y = 7
-	},
-/obj/table/reinforced/chemistry/auto{
-	desc = "A black countertop table for storing kitchen-y objects.";
-	name = "kitchen counter"
-	},
-/turf/simulated/floor/marble,
-/area/vampchapel)
 "veM" = (
 /obj/decal/cleanable/blood{
 	icon_state = "floor6"
@@ -78485,18 +78747,6 @@
 	dir = 8
 	},
 /area/iomoon/base)
-"vPn" = (
-/obj/decal/cleanable/cobweb/cobwebs_1/directional{
-	dir = 8
-	},
-/obj/decal/poster/wallsign/dead_exec_portrait{
-	name = "spooky painting";
-	desc = "His eyes follow you. Aah!"
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "vPQ" = (
 /turf/unsimulated/floor/stairs/wide{
 	dir = 8
@@ -78570,17 +78820,6 @@
 	name = "security door"
 	},
 /area/moon/museum)
-"vSG" = (
-/obj/decal/stage_edge/dojo,
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	dir = 4;
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "vSJ" = (
 /obj/table/wood/auto/desk,
 /obj/item/cigarbox/gold,
@@ -79346,6 +79585,34 @@
 	},
 /turf/space,
 /area/wizard_station_space)
+"wvj" = (
+/obj/decal/cleanable/cobweb/cobwebs_3/directional{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/decal/cleanable/ash{
+	pixel_x = 14;
+	pixel_y = 14
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decal/cleanable/cobweb/cobwebs_3{
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/decal/cleanable/ash{
+	pixel_x = 14;
+	pixel_y = 14
+	},
+/turf/simulated/floor/wood/five{
+	explosion_immune = 1
+	},
+/area/vampchapel)
 "wvp" = (
 /obj/table/reinforced/auto,
 /obj/machinery/door/window{
@@ -79386,20 +79653,6 @@
 	},
 /turf/unsimulated/floor/carpet/grime,
 /area/centcom/offices/flaborized)
-"wwp" = (
-/obj/machinery/power/apc/autoname_north,
-/obj/cable{
-	icon_state = "0-4"
-	},
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "wwq" = (
 /obj/table/reinforced/auto,
 /obj/machinery/door/window{
@@ -80976,24 +81229,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/hospital)
-"xxX" = (
-/obj/storage/closet/dresser,
-/obj/item/clothing/suit/gimmick/vampire,
-/obj/item/clothing/suit/gimmick/vampire,
-/obj/item/clothing/suit/gimmick/vampire,
-/obj/item/clothing/suit/gimmick/vampire,
-/obj/item/clothing/under/gimmick/vampire,
-/obj/item/clothing/under/gimmick/vampire,
-/obj/item/clothing/under/gimmick/vampire,
-/obj/item/clothing/under/gimmick/vampire,
-/obj/decal/cleanable/cobweb/cobwebs_3/directional{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/turf/simulated/floor/wood/seven{
-	explosion_immune = 1
-	},
-/area/vampchapel)
 "xyj" = (
 /obj/decal/icefloor,
 /obj/item/currency/spacecash/thousand,
@@ -81225,6 +81460,19 @@
 	icon_state = "floor2"
 	},
 /area/shuttle/merchant_shuttle/diner_centcom)
+"xCn" = (
+/obj/decoration/bookcase,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/decoration/bookcase,
+/obj/decal/cleanable/cobweb/cobwebs_1/directional/north,
+/turf/simulated/wall/auto/reinforced/supernorn/blackred{
+	explosion_protection = 1
+	},
+/area/vampchapel)
 "xDp" = (
 /obj/pool/perspective,
 /obj/decal/tile_edge/line/blue{
@@ -133129,7 +133377,7 @@ aIG
 aIG
 aIG
 aIr
-bdZ
+eho
 beo
 aIr
 aIG
@@ -164017,7 +164265,7 @@ jPW
 egU
 udA
 egU
-uoF
+cle
 okr
 okr
 okr
@@ -164313,7 +164561,7 @@ wiO
 wiO
 pgP
 okr
-bBa
+gzN
 jPW
 xSi
 ewd
@@ -166125,7 +166373,7 @@ wiO
 wiO
 pgP
 okr
-wwp
+idM
 nhJ
 uFa
 ewd
@@ -166437,7 +166685,7 @@ isd
 pOm
 pOm
 okr
-kPY
+nII
 tkX
 okr
 okr
@@ -166740,7 +166988,7 @@ xME
 nDf
 okr
 kpC
-igq
+nhk
 skM
 laP
 qlH
@@ -167041,11 +167289,11 @@ okr
 okr
 fuB
 kPu
-xxX
+riX
 pOm
 vqH
 mWO
-fyU
+pVy
 okr
 pgP
 wiO
@@ -167332,13 +167580,13 @@ pgP
 okr
 okr
 xzf
-vSG
+rsB
 pOm
 djM
 djM
 djM
 qnG
-tuK
+sYe
 okr
 okr
 qnG
@@ -167643,13 +167891,13 @@ ohL
 pOP
 wSJ
 okr
-eUz
+tin
 wHi
 oOp
 pOm
 ueq
 mWO
-mhX
+wvj
 okr
 mWz
 wiO
@@ -167950,7 +168198,7 @@ okr
 okr
 okr
 okr
-kZk
+rAK
 qlH
 okr
 pgP
@@ -168235,7 +168483,7 @@ aaa
 wiO
 pgP
 okr
-rai
+bld
 xzf
 xzf
 vqH
@@ -168247,7 +168495,7 @@ iED
 fOB
 pOP
 okr
-vPn
+mSK
 pOm
 pOm
 okr
@@ -168851,7 +169099,7 @@ hej
 mNv
 isd
 kPu
-kwk
+tbZ
 pOm
 pOm
 okr
@@ -169455,8 +169703,8 @@ vYB
 isd
 dYZ
 okr
-rxF
-rFr
+xCn
+mRf
 pOm
 gjJ
 pOm
@@ -169747,7 +169995,7 @@ pgP
 pgP
 okr
 okr
-hab
+rTx
 jAN
 xME
 pnd
@@ -170351,7 +170599,7 @@ wiO
 pgP
 fQO
 fQO
-fxU
+mmP
 uHU
 qae
 pmy
@@ -170657,7 +170905,7 @@ erb
 iao
 iRU
 okr
-veL
+rEs
 iTt
 wfi
 iTt
@@ -170954,7 +171202,7 @@ wiO
 wiO
 pgP
 fQO
-pyG
+mVO
 hMy
 nmB
 gnO
@@ -171558,7 +171806,7 @@ wiO
 wiO
 pgP
 fQO
-pIf
+iNx
 kgi
 fQO
 fQO
