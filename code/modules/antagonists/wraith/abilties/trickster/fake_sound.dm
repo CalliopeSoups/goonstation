@@ -74,3 +74,6 @@
 		playsound(target, sound_choice, 70)
 		boutput(holder.owner, SPAN_NOTICE("You use your powers to create a sound."))
 		return CAST_ATTEMPT_SUCCESS
+
+	doll_fake_sound
+		pointCost = 0

@@ -108,7 +108,7 @@
 			border_state = "plague_frame"
 		else if (istype(holder.owner, /mob/living/intangible/wraith/wraith_harbinger))
 			border_state = "harbinger_frame"
-		else if (istype(holder.owner, /mob/living/intangible/wraith/wraith_trickster) || istype(holder.owner, /mob/living/critter/wraith/trickster_puppet))
+		else if (istype(holder.owner, /mob/living/intangible/wraith/wraith_trickster) || istype(holder.owner, /mob/living/critter/wraith/trickster_puppet) || istype(holder.owner, /mob/living/critter/wraith/devious_doll))
 			border_state = "trickster_frame"
 
 		var/atom/movable/screen/ability/topBar/B = src.object

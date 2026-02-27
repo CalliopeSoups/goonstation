@@ -17,6 +17,14 @@
 			P.demanifest()
 			return 0
 
+		if(istype(holder.owner, /mob/living/critter/wraith/devious_doll))
+			var/mob/living/critter/wraith/devious_doll/doll = holder.owner
+			if (doll.hasStatus("corporeal"))
+				doll.be_incorporeal()
+			else
+				doll.be_corporeal()
+			return 0
+
 		var/mob/living/intangible/wraith/K = src.holder.owner
 		if (!K.forced_manifest && K.hasStatus("corporeal"))
 			boutput(holder.owner, SPAN_NOTICE("You fade back into the shadows."))

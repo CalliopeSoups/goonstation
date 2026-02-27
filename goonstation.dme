@@ -652,6 +652,7 @@
 #include "code\mob\living\intangible\blob_overmind\ai.dm"
 #include "code\mob\living\intangible\flock\flockmind.dm"
 #include "code\mob\living\intangible\flock\flocktrace.dm"
+#include "code\mob\living\intangible\wraith\devious_doll.dm"
 #include "code\mob\living\intangible\wraith\poltergeist.dm"
 #include "code\mob\living\intangible\wraith\wraith_name_generator.dm"
 #include "code\mob\living\life\blindness.dm"

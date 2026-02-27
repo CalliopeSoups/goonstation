@@ -41,17 +41,21 @@
 			boutput(src.holder.owner, SPAN_ALERT("A strange force prevents you from doing that in this area!"))
 			return CAST_ATTEMPT_FAIL_NO_COOLDOWN
 		var/mob/living/intangible/wraith/wraith_trickster/W
-		if (istype(src.holder.owner, /mob/living/intangible/wraith/wraith_trickster))
+		if (istype(src.holder.owner, /mob/living/critter/wraith/trickster_puppet))
 			W = src.holder.owner
 			if (!W.haunting)
 				boutput(src.holder.owner, SPAN_ALERT("You cannot cast this under your current form."))
 				return CAST_ATTEMPT_FAIL_NO_COOLDOWN
-		var/mob/living/critter/wraith/trickster_puppet/P = src.holder.owner
+		else if (istype(src.holder.owner, /mob/living/critter/wraith/devious_doll))
+			if (!src.holder.owner.hasStatus("corporeal"))
+				boutput(src.holder.owner, SPAN_ALERT("You cannot cast this under your current form."))
+				return CAST_ATTEMPT_FAIL_NO_COOLDOWN
+		var/mob/living/critter/wraith/P = src.holder.owner
 		if (!istype(P))
 			boutput(src.holder.owner, SPAN_ALERT("You cannot cast this under your current form."))
 			return CAST_ATTEMPT_FAIL_NO_COOLDOWN
 		else
-			W = P.master
+			W = P.master // progress point
 		var/turf/T = get_turf(src.holder.owner)
 		if (!isturf(T) || !istype(T, /turf/simulated/floor))
 			boutput(src.holder.owner, SPAN_ALERT("You cannot place a trap here."))
@@ -96,3 +100,10 @@
 			return CAST_ATTEMPT_FAIL_NO_COOLDOWN
 		boutput(src.holder.owner, SPAN_NOTICE("You place a trap on the floor, and it begins to charge up."))
 		return CAST_ATTEMPT_SUCCESS
+
+	doll_lay_trap
+		pointCost = 0
+		max_traps = 5
+
+		cast()
+

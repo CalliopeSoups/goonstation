@@ -6,6 +6,7 @@ TYPEINFO(/mob/living/critter/wraith)
 	start_speech_outputs = list(SPEECH_OUTPUT_SPOKEN, SPEECH_OUTPUT_EQUIPPED, SPEECH_OUTPUT_WRAITHCHAT_WRAITH_SUMMON)
 
 /mob/living/critter/wraith
+	var/can_place_things = FALSE // for lay_trap mostly
 	var/name_generator_path = /datum/wraith_name_generator/wraith_summon
 
 /mob/living/critter/wraith/New()

@@ -13,6 +13,7 @@
 	health_brute_vuln = 1
 	health_burn = 8
 	health_burn_vuln = 1
+	can_place_things = 1
 	var/mob/living/intangible/wraith/wraith_trickster/master = null
 	var/hauntBonus = 0
 	var/last_life_update = 0

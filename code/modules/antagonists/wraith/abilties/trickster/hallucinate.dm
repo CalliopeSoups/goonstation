@@ -23,3 +23,9 @@
 			H.setStatus("terror", 45 SECONDS)
 		src.holder.owner.playsound_local(src.holder.owner, "sound/voice/wraith/wraithspook[rand(1, 2)].ogg", 80)
 		return CAST_ATTEMPT_SUCCESS
+
+	doll_hallucinate
+		pointCost = 0
+		cooldown = 30 SECONDS
+
+
