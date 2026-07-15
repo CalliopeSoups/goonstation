@@ -12,6 +12,7 @@
 	var/customization_available = 0
 	var/always_custom = FALSE
 	var/weight = 100					//for weighted probability picker. 100 is base
+	var/disabled_on_extended = FALSE
 
 	proc/event_effect(var/source)
 		if (!source)
