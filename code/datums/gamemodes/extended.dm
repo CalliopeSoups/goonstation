@@ -14,7 +14,7 @@
 		return FALSE
 #endif
 	for(var/datum/random_event/event in random_events.major_events)
-		if(istype(event, /datum/random_event/major/law_rack_corruption))
+		if(event.disabled_on_extended)
 			event.disabled = TRUE
 	return TRUE
 

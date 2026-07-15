@@ -8,6 +8,7 @@ TYPEINFO(/datum/random_event/major/law_rack_corruption)
 /datum/random_event/major/law_rack_corruption
 	name = "Law Rack Corruption"
 	customization_available = TRUE
+	disabled_on_extended = TRUE
 	var/law_text = ""
 	var/law_number = null
 	var/replace = null
