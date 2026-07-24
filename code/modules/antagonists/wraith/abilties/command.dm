@@ -25,7 +25,7 @@
 				H.delStatus("knockdown")
 				H.lying = 0
 				H.show_message(SPAN_ALERT("A ghostly force compels you to be still on your feet."))
-		for (var/obj/O in view(7, holder.owner))
+		for (var/obj/O in view(7, T))
 			if (!O.anchored && isturf(O.loc))
 				if (prob(current_prob))
 					current_prob *= 0.35 // very steep. probably grabs 3 or 4 objects per cast -- much less effective than revenant command
